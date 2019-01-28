@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul#menu {
+    padding: 0;
+}
+
+ul#menu li {
+    display: inline;
+}
+
+ul#menu li a {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover {
+    background-color: orange;
+}
+</style>
+</head>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+<script src="pubnub.min.js"></script>
+<script src="testGCM.js"></script>
+
+<body onload="loadXMLDoc()">
+
+<h2>Flood Alert System Admin</h2>
+
+<ul id="menu">
+  <li><a href="">River Monitor</a></li>
+  <li><a href="">SOS</a></li>
+
+</ul>  
+
+push messages to user :
+<button onclick="sendPush()">Push button notifications</button>
+
+  <div id="myDiv"></div>
+</body>
+<body onload="messages()">
+<h2>SOS</h2>
+
+<button onclick="messages()">View</button>
+<input type="button" onclick="location.href='victimlocation.html';" value="Victims position in map" />
+  <div id="messages"></div>
+</body>
+
+<script>
+function loadXMLDoc()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+}
+xmlhttp.open("GET","http://floodalert.netai.net/floodAlert//monitoringriver.php",true);
+
+
+xmlhttp.send();
+}
+
+function messages()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("messages").innerHTML=xmlhttp.responseText;
+    }
+}
+xmlhttp.open("GET","http://floodalert.netai.net/floodAlert/messages.php",true);
+
+
+xmlhttp.send();
+}
+</script>
+
+
+</html>

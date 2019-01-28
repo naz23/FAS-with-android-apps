@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Victim location</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 50%;
+      }
+    </style>
+    <style>
+ul#menu {
+    padding: 0;
+}
+
+ul#menu li {
+    display: inline;
+}
+
+ul#menu li a {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover {
+    background-color: orange;
+}
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+<script src="pubnub.min.js"></script>
+<script src="testGCM.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-tEzJnuqI5kPm3X75iL6lqE0BMIxL628&signed_in=true"></script>
+<script src="map.js"></script>
+  </head>
+  <body>
+      <h2>Flood Alert System Admin</h2>
+
+<ul id="menu">
+  <li><a href="http://floodalert.netai.net/floodAlert/admin.html">River Monitor</a></li>
+  <li><a href="http://floodalert.netai.net/floodAlert/admin.html">SOS</a></li>
+
+</ul>  
+    <h1>Victim Location :</h1>
+    <div id="map"></div>
+  </body>
+</html>
